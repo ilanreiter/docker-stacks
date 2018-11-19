@@ -15,7 +15,8 @@ RUN conda install --quiet --yes \
 
 RUN pip install gym 'tensorboard==1.0.0a6' tensorboardX
 #install ptan: GitHub: https://github.com/Shmuma/ptan
-RUN pip install ptan==0.3 
+RUN pip install ptan==0.3 \
+    'opencv-python==3.4.0.12'
  
  
 #To build an image from this file run: docker build -t deep-rl .
