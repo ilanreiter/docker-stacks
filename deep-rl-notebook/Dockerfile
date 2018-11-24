@@ -8,7 +8,7 @@ LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
 RUN conda install --quiet --yes \
     'tensorflow=1.5*' \
     'keras=2.1*' \
-    pytorch torchvision  -c pytorch  &&\
+    'pytorch==0.4.*' torchvision cuda91 -y  -c pytorch  &&\
     conda clean -tipsy && \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
@@ -16,7 +16,8 @@ RUN conda install --quiet --yes \
 RUN pip install gym 'tensorboard==1.0.0a6' tensorboardX
 #install ptan: GitHub: https://github.com/Shmuma/ptan
 RUN pip install ptan==0.3 \
-    'opencv-python==3.4.0.12'
+    'opencv-python==3.4.0.12' \
+    atari-py 
  
  
 #To build an image from this file run: docker build -t deep-rl .
